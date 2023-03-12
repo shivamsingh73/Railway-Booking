@@ -52,13 +52,20 @@ fs.writeFileSync('output.txt',output)
 
 main().catch(err => console.log(err));
 
+async function main() {
+  await mongoose.connect('mongodb://127.0.0.1:27017/a');
+
+  const as = await b.find( { station_name: Arrival} );                          //,  train_number: '14084'
+  const as1 = await b.find( { station_name: Destination} );
+
+console.log(as);
+console.log(as1);
+
+}
 
 
-
-  res.render('search.pug')
+  res.send('search.pug')
 })
-
-
 
 
 
@@ -66,26 +73,6 @@ main().catch(err => console.log(err));
 app.get('/search',(req,res)=>{
   res.render('search.pug')
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
