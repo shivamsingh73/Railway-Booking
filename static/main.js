@@ -1,15 +1,6 @@
-function myFunction() {
-    var x = document.getElementById("myTopnav");
-    if (x.className === "topnav") {
-      x.className += " responsive";
-    } else {
-      x.className = "topnav";
-    }
-  }
+/* These Functions are for showing popup Windows */
 
-
-
-  function openForm() {
+function openForm() {
     document.getElementById("myForm").style.display = "flex";
   }
   
@@ -146,5 +137,3 @@ function myFunction() {
   function h5BC(){
     document.getElementById("hBook10").style.display = "none";
   }
-
-

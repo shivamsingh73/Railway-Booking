@@ -30,6 +30,23 @@ app.get('/login',(req,res)=>{
 })
 
 
+
+app.get('/Contact',(req,res)=>{
+  res.render('Contact.pug')
+})
+
+
+app.get('/Services',(req,res)=>{
+  res.render('services.pug')
+})
+
+
+app.get('/Meal',(req,res)=>{
+  res.render('meal.pug')
+})
+
+
+
 app.post('/login',(req,res)=>{
   username=req.body.uname
   password=req.body.password
