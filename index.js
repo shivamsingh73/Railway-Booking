@@ -5,7 +5,8 @@ const app = express()
 const port = 3000;
 
 
-
+const mongoose = require('mongoose');
+const b= require('./b');
 
 
 //pug template engine
@@ -52,14 +53,15 @@ app.post('/login',(req,res)=>{
   password=req.body.password
 
 //  let outputlogin=`username is  ${username}, having Password ${password}.` 
- 
-//  fs.writeFileSync('loginoutput.txt',outputlogin)
+ //  fs.writeFileSync('loginoutput.txt',outputlogin)
  
    res.render('index.pug')
  })
 
 
-app.post('/',(req,res)=>{
+
+
+ app.post('/',(req,res)=>{
  date=req.body.asd
  Arrival=req.body.name
  Destination=req.body.name1
@@ -70,18 +72,17 @@ fs.writeFileSync('output.txt',output)
 main().catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect('mongodb://127.0.0.1:27017/a');
+  await mongoose.connect('mongodb://127.0.0.1:27017/railway');
 
-  const as = await b.find( { station_name: Arrival} );                          //,  train_number: '14084'
-  const as1 = await b.find( { station_name: Destination} );
+ const z= await b.find( { Source_Station_Name: Arrival ,   Destination_Station_Name:Destination } );
 
-console.log(as);
-console.log(as1);
+console.log(z);
+
 
 }
 
 
-  res.send('search.pug')
+  res.send('console.log(z);')
 })
 
 
@@ -100,26 +101,6 @@ app.use('/static',express.static('static'));
 
 
 app.set('views',path.join(__dirname,'views'))
-
-
-
-
-
-
-
-const mongoose = require('mongoose');
-const b= require('./b');
-
-// main().catch(err => console.log(err));
-
-// async function main() {
-//   await mongoose.connect('mongodb://127.0.0.1:27017/a');
-
-//   const as = await b.find( { station_name: $Arrival  } );                          //,  train_number: '14084'
-// console.log(as);
-  
- 
-// }
 
 
 
